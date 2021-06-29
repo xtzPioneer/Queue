@@ -75,7 +75,7 @@
             if queue1 == queue2 {
                 print("相等")
             }else {
-                print("不等")
+                print("不相等")
             }
             
         }

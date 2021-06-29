@@ -53,7 +53,7 @@ public protocol QueueProtocol {
 /// 队列
 public struct Queue<Element: Hashable>: Hashable, QueueProtocol {
    
-    fileprivate var elements: Array<Element>
+    private var elements: Array<Element>
     
     public mutating func enqueue(_ element: Element) {
         elements.append(element)
