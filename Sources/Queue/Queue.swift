@@ -57,7 +57,7 @@ public protocol QueueProtocol {
 /// 队列
 public struct Queue<Element>: QueueProtocol {
    
-    private var elements = [Element]()
+    fileprivate var elements = [Element]()
     
     public mutating func enqueue(_ element: Element) {
         elements.append(element)
