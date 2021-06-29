@@ -98,6 +98,7 @@ public struct Queue<Element>: QueueProtocol {
     
     public typealias Element = Element
     
+    /// 初始化
     public init() {
         elements = Array<Element>()
     }
@@ -156,12 +157,35 @@ extension Queue: CustomStringConvertible, CustomDebugStringConvertible {
     
 }
 
-// MARK: - 迭代器
+// MARK: - 迭代
 
 extension Queue: Sequence {
     
     public func makeIterator() -> AnyIterator<Element> {
         AnyIterator(IndexingIterator(_elements: elements.lazy))
     }
+    
+}
+
+extension Queue {
+    
+    /// 初始化
+    /// - Parameter elements: 元素集合
+    public init<T: Sequence>(_ elements: T) where T.Iterator.Element == Element {
+        self.init()
+        self.elements.append(contentsOf: elements)
+    }
+    
+}
+
+extension Queue: ExpressibleByArrayLiteral {
+    
+    /// 初始化
+    /// - Parameter elements: 元素集合
+    public init(arrayLiteral elements: Element...) {
+        self.init(elements)
+    }
+    
+    public typealias ArrayLiteralElement = Element
     
 }
