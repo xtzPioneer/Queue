@@ -57,7 +57,7 @@ public protocol QueueProtocol {
 /// 队列
 public struct Queue<Element>: QueueProtocol {
    
-    fileprivate var elements = [Element]()
+    fileprivate var elements: Array<Element>
     
     public mutating func enqueue(_ element: Element) {
         elements.append(element)
@@ -97,6 +97,10 @@ public struct Queue<Element>: QueueProtocol {
     }
     
     public typealias Element = Element
+    
+    public init() {
+        elements = Array<Element>()
+    }
     
 }
 
