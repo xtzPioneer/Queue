@@ -28,5 +28,8 @@ let package = Package(
             dependencies: [
                 "Queue"
             ]),
+    ],
+    swiftLanguageVersions: [
+        .v5,
     ]
 )
