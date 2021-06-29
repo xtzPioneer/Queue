@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - 队列协议
-
 /// 队列协议
 public protocol QueueProtocol {
     
@@ -52,10 +50,8 @@ public protocol QueueProtocol {
     
 }
 
-// MARK: - 队列
-
 /// 队列
-public struct Queue<Element>: QueueProtocol {
+public struct Queue<Element: Hashable>: Hashable, QueueProtocol {
    
     fileprivate var elements: Array<Element>
     
@@ -105,8 +101,6 @@ public struct Queue<Element>: QueueProtocol {
     
 }
 
-// MARK: - 下标
-
 extension Queue {
     
     /// 通过指定的下标值来获取/设置队列中的元素
@@ -137,27 +131,23 @@ extension Queue {
     
 }
 
-// MARK: - 描述
-
 extension Queue: CustomStringConvertible, CustomDebugStringConvertible {
     
     /// 在打印队列及其元素时，输出简洁漂亮的格式
     ///
     /// 返回队列及其元素的文本表示
     public var description: String {
-        return elements.description
+        elements.description
     }
     
     /// 打印时输出简洁漂亮的格式，主要用于调试
     ///
     /// 返回队列及其元素的文本表示，适用于调试
     public var debugDescription: String {
-        return elements.debugDescription
+        elements.debugDescription
     }
     
 }
-
-// MARK: - 迭代
 
 extension Queue: Sequence {
     

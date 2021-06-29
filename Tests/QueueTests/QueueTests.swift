@@ -56,17 +56,27 @@
             print("下标为0的元素：\(queue1[0])")
             print("下标为1的元素：\(queue1[1])")
             
-            // 描述
-            print("描述：\(queue1.description)")
-            print("debug描述：\(queue1.debugDescription)")
-            
             // 容量/数量
             print("队列容量：\(queue1.capacity)")
             print("队列数量：\(queue1.count)")
             
+            // 描述
+            print("描述1：\(queue1.description)")
+            
             // 初始化方法2
-            let queue2: Queue = Queue(queue1)
-            print(queue2.debugDescription)
+            var queue2: Queue = Queue(queue1)
+            // 下标Set
+            queue2[0] = 15
+            queue2[1] = 16
+            // 描述
+            print("描述2：\(queue2.description)")
+            
+            // 对比
+            if queue1 == queue2 {
+                print("相等")
+            }else {
+                print("不等")
+            }
             
         }
     }
