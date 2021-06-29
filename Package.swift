@@ -14,14 +14,19 @@ let package = Package(
     products: [
         .library(
             name: "Queue",
-            targets: ["Queue"]),
+            targets: [
+                "Queue"
+            ]),
     ],
     targets: [
         .target(
             name: "Queue",
-            dependencies: []),
+            dependencies: [
+            ]),
         .testTarget(
             name: "QueueTests",
-            dependencies: ["Queue"]),
+            dependencies: [
+                "Queue"
+            ]),
     ]
 )
