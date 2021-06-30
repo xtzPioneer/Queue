@@ -60,11 +60,19 @@ public struct Queue<Element: Hashable>: Hashable, QueueProtocol {
     }
     
     public mutating func dequeue() -> Element? {
-        elements.removeFirst()
+        if isEmpty() {
+            return nil
+        }else {
+            return elements.removeFirst()
+        }
     }
     
     public mutating func peek() -> Element? {
-        elements.first
+        if isEmpty() {
+            return nil
+        }else {
+            return elements.first
+        }
     }
     
     public mutating func clear() {

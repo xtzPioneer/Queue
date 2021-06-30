@@ -2,6 +2,7 @@
     @testable import Queue
 
     final class QueueTests: XCTestCase {
+                
         func testExample() {
             // 初始化方法1
             var queue1: Queue = Queue<Int>()
@@ -23,22 +24,15 @@
             queue1.enqueue(9)
             
             // 出队
-            if let element = queue1.dequeue() {
-                print("出队元素：\(element)")
-            }
-            
-            if let element = queue1.dequeue() {
-                print("出队元素：\(element)")
-            }
-            
-            if let element = queue1.dequeue() {
-                print("出队元素：\(element)")
+            for _ in 1...20 {
+                if let element = queue1.dequeue() {
+                    print("出队元素：\(element)")
+                }
             }
             
             // 入队
             queue1.enqueue(13)
             queue1.enqueue(14)
-            
             
             // 迭代
             for element in queue1 {
